@@ -160,6 +160,47 @@ document.addEventListener('DOMContentLoaded', () => {
     connectModal();
 
 
+    function timingModal() {
+        const timingModal = document.createElement("div");
+        timingModal.classList.add("timing-modal");
+        timingModal.innerHTML = `
+            <div class='timing-modal-block'>
+                <div class='timing-modal-content'>
+                    <div class='timing-modal-wrapper'>
+                        <span class='timing-modal-close'>X</span>
+                        <h1 class='timing-modal-title'>Добро пожаловать!</h1>
+                        <p class='timing-modal-subtitle'>Для нашей рассылки вы можете подписаться на нас чтобы следить за новинками</p>
+                        <img class='email-icon' src='img/email.png' alt='email-icon'>
+                        <input class='timing-modal-email' type='email' required placeholder='email'>
+                        <button class='timing-modal-button'>Отправить</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(timingModal);
+        timingModal.style.display = 'block';
 
+
+        const timingModalBtn = document.querySelector('.timing-modal-button');
+        const timingModalClose = document.querySelector('.timing-modal-close');
+
+        timingModalClose.addEventListener('click', () => {
+            timingModal.style.display = 'none';
+        });
+
+        timingModalBtn.addEventListener('click', () => {
+            timingModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if(e.target === timingModal) {
+                timingModal.style.display = 'none';
+            }
+        });
+    };
+    
+    setTimeout(() => {
+        timingModal();
+    }, 3000);
 
 });
