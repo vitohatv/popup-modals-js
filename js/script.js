@@ -72,6 +72,49 @@ document.addEventListener('DOMContentLoaded', () => {
     buyingModal();
 
 
+    function orderModal() {
+
+        const orderModalBtn = document.querySelector("#modal-3");
+        
+        const orderModal = document.createElement("div");
+        orderModal.classList.add('order-modal');
+        orderModal.innerHTML = `
+            <div class='orderModal-block'>
+                <div class='orderModal-content'>
+                    <div class='orderModal-wrapper'>
+                        <span class='close-orderModal'>X</span>
+                        <img class='orderModal-image' src='img/keyboard-razer.png' alt='keyboard'>
+                        <h1 class='orderModal-title'>Игровая клавиатура Razer <span class='order-model'>Механическая</span></h1>
+                        <p  class='orderModal-price'>25.000 ₸енге</p>
+                    </div>
+                    <button class='orderModal-buy-btn'>Переидти к оплате</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(orderModal);
+        orderModal.style.display = 'none';
+        
+        orderModalBtn.addEventListener('click', () => {
+            orderModal.style.display ='block';
+        });
+        window.addEventListener('click', (e) => {
+            if(e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+        });
+
+        const goToBuyBtn = document.querySelector(".orderModal-buy-btn");
+        const orderModalClose = document.querySelector(".close-orderModal");
+
+        orderModalClose.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        goToBuyBtn.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+    }
+    orderModal();
+
 
 
 
