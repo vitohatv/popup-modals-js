@@ -116,7 +116,48 @@ document.addEventListener('DOMContentLoaded', () => {
     orderModal();
 
 
+    function connectModal() {  
+        const connectModalBtn = document.querySelector('#modal-4');
 
+        const connectModal = document.createElement('div');
+        connectModal.classList.add('connect-modal');
+        connectModal.innerHTML = `
+            <div class='connectModal-block'>
+                <div class='connectModal-content'>
+                    <div class='connectModal-wrapper'>
+                        <span class='close-connectModal'>X</span>
+                        <p  class='connectModal-support-title'>Добро пожаловать в службу поддержки клиентов.</p>
+                        <p  class='connectModal-support-subtitle'>Если вы хотите связаться с 
+                        представителем службы поддержки, мы будем рады помочь вам ежедневно
+                        с 10:00 до 20:30 по АСТ.времени</p>
+                        <h1 class='connectModal-title'>Связаться с нами можно по контактам ниже:</h1>
+                        <p  class='connectModal-whatsapp'>Whats'app: +77016354950 (Алматы)</p>
+                        <p  class='connectModal-tel'>Телефон менеджера: +77789324089</p>
+                        <p  class='connectModal-adress'>Адрес: 050000, г. Алматы, ул. Казыбек Би д.33</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(connectModal);
+        connectModal.style.display = 'none';
+
+        const connectModalClose = document.querySelector(".close-connectModal");
+
+        connectModalClose.addEventListener('click', () => {
+            connectModal.style.display = 'none';
+        });
+
+        connectModalBtn.addEventListener('click', () => {
+            connectModal.style.display = 'block';
+        });
+
+        window.addEventListener('click', (e) => {
+            if(e.target === connectModal) {
+                connectModal.style.display = 'none';
+            }
+        });
+    }
+    connectModal();
 
 
 
